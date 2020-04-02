@@ -1,0 +1,53 @@
+
+<clr-main-container>
+    <clr-header  class="header-5"  [clr-nav-level]="1">
+        <div class="branding">
+            <span class="title">Apollo Project</span>
+        </div>
+        <!-- <div class="header-nav">
+            <a href="javascript://" class="active nav-link nav-text">Dashboard</a>
+            <a href="javascript://" class="nav-link nav-text">Interactive Analytics</a>
+        </div> -->
+        <div class="header-actions">
+            <clr-dropdown>
+                <button class="nav-text" clrDropdownTrigger aria-label="open user profile">
+                    {{userlogin}}
+                    <clr-icon shape="caret down"></clr-icon>
+                </button>
+                <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                    <a href="..." clrDropdownItem>Preferences</a>
+                    <a href="..." clrDropdownItem>Log out</a>
+                </clr-dropdown-menu>
+            </clr-dropdown>
+      </div>
+    </clr-header>
+
+    <div class="content-container">
+        <!-- <nav class="sidenav" [clr-nav-level]="2"> -->
+            <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
+                <a clrVerticalNavLink  [routerLink]="[{ outlets: { detailroute: ['register'] } }]" 
+                            routerLinkActive="active">
+                 <clr-icon clrVerticalNavIcon shape="user"></clr-icon>
+                 Register
+                </a>
+                <a clrVerticalNavLink [routerLink]="[{ outlets: { detailroute: ['ClaimDocument'] } }]" 
+                             routerLinkActive="active">
+                    <clr-icon clrVerticalNavIcon shape="bolt"></clr-icon>
+                    Claim Document
+                </a>
+                <a clrVerticalNavLink routerLink="./pikachu" routerLinkActive="active">Pikachu</a>
+                <a clrVerticalNavLink routerLink="./raichu" routerLinkActive="active">Raichu</a>
+                <a clrVerticalNavLink routerLink="./snorlax" routerLinkActive="active">Snorlax</a>
+                <div class="nav-divider"></div>
+                <a clrVerticalNavLink routerLink="./credit" routerLinkActive="active">Credit</a>
+            </clr-vertical-nav>
+        <!-- </!--> 
+        
+        <main class="content-area">
+             <router-outlet name="detailroute"></router-outlet>
+        </main>
+        <!-- <nav class="sidenav" [clr-nav-level]="2">
+            ...
+        </nav> -->
+    </div>
+</clr-main-container>
